@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    width: 350px;
+    margin: auto;
+}
+h1{
+    background: darkblue;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+ul li{
+    list-style: none;
+    font-size: 20px;
+    line-height: 25px;
+    padding-left: 5%;
+    position: relative;
+}
+li:nth-child(even){
+    background: lightblue;
+}
+button.remove{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: red;
+}
+h2{
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+input{
+    width: 75%;
+    height: 25px;
+}
+button.addNew{
+    width: 25%;
+    height: 25px;
+    background: darkblue;
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> TO DO LIST </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css"></link>
+</head>
+
+<body>
+
+<script>
+    var app = angular.module("myShoppingList", []);
+
+    app.controller("myCtrl", function($scope) {
+        $scope.products = ["meat", "cheese", "milk"];
+        $scope.addNew = function() {
+            $scope.errors = "";
+            if (!$scope.newProduct) {
+                return ;
+            }
+            if ($scope.products.indexOf($scope.newProduct) == -1) {
+                        $scope.products.push($scope.newProduct);
+                    } else {
+                        $scope.errors = "The item is already in your shopping list.";
+                    }
+        }
+        $scope.remove = function(index) {
+            $scope.products.splice(index,1);
+        }
+    })
+</script>
+
+
+<main ng-app="myShoppingList" ng-controller="myCtrl">
+    <img src="img/roll2.jpg">
+    <h1> My shopping list: </h1>
+    <ul>
+        <li ng-repeat="product in products">
+            {{product}}
+            <button class="remove" ng-click="remove($index)"> X </button>
+        </li>
+    </ul>
+    <h2> Add new product to the list: </h2>
+    <input type="text" ng-model="newProduct" /><!--
+ --><button class="addNew" ng-click="addNew()"> Add </button>
+    <span> {{errors}} </span>
+</main>
+
+</body>
+
+</html>
